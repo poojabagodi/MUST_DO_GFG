@@ -143,6 +143,34 @@ public class Implementation {
     head=prev;
    }
 
+
+
+   public void removenthfromend(int n){
+    int len=0;
+    Node temp=head;
+    while(temp!=null){
+        temp=temp.next;
+        len++;
+    }
+  if(n==len){
+    head=head.next;
+    return;
+  }
+     if(n==1){
+        removeLast();
+        return;
+     }
+
+     int i=1;
+     Node prev=head;
+     while(i<len-n){
+        prev=prev.next;
+        i++;
+     }
+     prev.next=prev.next.next;
+     return;
+}
+
    public void printll(){
     if(head==null){
         System.out.println("Linked List is empty");
