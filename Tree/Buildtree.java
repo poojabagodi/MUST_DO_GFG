@@ -85,7 +85,7 @@ public class Buildtree {
         }
 
 
-        public int Height(Node root){
+        public  static int Height(Node root){
             if(root==null){
                 return 0;
             }
@@ -112,6 +112,34 @@ public class Buildtree {
             int ls=sumnodes(root.left);
             int rs=sumnodes(root.right);
             return ls+rs+root.data;
+        }
+
+        public int diameter(Node root){
+            if(root==null){
+                return 0;
+            }
+            int ldiam=diameter(root.left);
+            int lh=Height(root.left);
+            int rdiam=diameter(root.right); 
+            int rh=Height(root.right);
+            int selfdiam=lh+rh+1;
+            return Math.max(selfdiam, Math.max(ldiam, rdiam));
+
+        }
+
+        public void klevel(Node root,int level,int k){
+            if(root==null){
+                return;
+
+            }
+
+            if(level==k){
+                System.out.print(root.data+" ");
+                return;
+            }
+
+            klevel(root.left,level+1,k);
+            klevel(root.right,level+1,k);
         }
 
     }
