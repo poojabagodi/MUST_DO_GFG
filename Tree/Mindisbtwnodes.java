@@ -28,7 +28,7 @@ public class Mindisbtwnodes {
         else if(leftdist==-1){
             return rightdist+1;
         }
-        else{
+        else{  
             return leftdist+1;
         }
     }
